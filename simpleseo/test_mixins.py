@@ -2,13 +2,14 @@
 from __future__ import unicode_literals
 from random import choice
 from string import ascii_letters
-from urlparse import urlparse
 import xml.etree.ElementTree as ET
 
 from django.test import TestCase
 from django.utils.encoding import force_text
 from simpleseo.models import SeoMetadata
 from django.conf import settings
+
+from six.moves.urllib.parse import urlparse, unquote
 
 
 class TestSimpleseoMixin(object):
@@ -35,6 +36,7 @@ class TestSimpleseoMixin(object):
                 self.location_list.append(path)
 
         for path in self.location_list:
+            path = force_text(unquote(path))
             seo = SeoMetadata.objects.create(
                 path=path, lang_code=settings.LANGUAGE_CODE[:2],
                 title=''.join(choice(ascii_letters) for _ in range(20)),
