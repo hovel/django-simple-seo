@@ -12,13 +12,15 @@ class SeoMetadata(models.Model):
     content_type = models.ForeignKey(ContentType, null=True, blank=True)
     object_id = models.PositiveIntegerField(null=True, blank=True)
     content_object = generic.GenericForeignKey('content_type', 'object_id')
-    path = models.CharField(verbose_name=_('Path'), max_length=200, db_index=True,
+    path = models.CharField(verbose_name=_('Path'), max_length=255, db_index=True,
                             help_text=_("This should be an absolute path, excluding the domain name. Example: '/foo/bar/'."))
     lang_code = models.CharField(verbose_name=_('Language'), max_length=2,
                                  choices=settings.SEO_LANGUAGES,
                                  default=settings.DEFAULT_LANG_CODE)
-    title = models.CharField(verbose_name=_('Title'), max_length=68, blank=True)
-    description = models.CharField(verbose_name=_('Description'), max_length=155, blank=True)
+    title = models.CharField(verbose_name=_('Title'), max_length=255, blank=True,
+                             help_text=_("Recommended length: up to 70 symbols"))
+    description = models.CharField(verbose_name=_('Description'), max_length=255, blank=True,
+                                   help_text=_("Recommended length: up to 160 symbols."))
 
     class Meta:
         verbose_name = _('SEO metadata')

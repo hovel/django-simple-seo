@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-30 00:54+0400\n"
+"POT-Creation-Date: 2014-09-25 01:57+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,9 +38,17 @@ msgid "Title"
 msgstr "Заголовок"
 
 #: models.py:21
+msgid "Recommended length: up to 70 symbols"
+msgstr "Рекомендуемая длина: до 70 символов."
+
+#: models.py:22
 msgid "Description"
 msgstr "Описание"
 
-#: models.py:24 models.py:25
+#: models.py:23
+msgid "Recommended length: up to 160 symbols."
+msgstr "Рекомендуемая длина: до 160 символов."
+
+#: models.py:26 models.py:27
 msgid "SEO metadata"
 msgstr "Метаданные SEO"
