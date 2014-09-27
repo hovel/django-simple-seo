@@ -32,6 +32,9 @@ class SeoMetadata(models.Model):
     def __unicode__(self):
         return "Language: %s | URL: %s" % (self.lang_code, self.path)
 
+    def get_absolute_url(self):
+        return self.path
+
 
 def update_seo(sender, instance, **kwargs):
     active_lang = get_language()
