@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 01:57+0400\n"
+"POT-Creation-Date: 2015-02-07 04:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,36 +19,48 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: models.py:15
+#: models.py:16
 msgid "Path"
 msgstr "Путь"
 
-#: models.py:16
+#: models.py:17
 msgid ""
 "This should be an absolute path, excluding the domain name. Example: '/foo/"
 "bar/'."
 msgstr "Абсолютный путь без доменного имени. Пример: '/раздел/страница/'."
 
-#: models.py:17
+#: models.py:19
 msgid "Language"
 msgstr "Язык"
 
-#: models.py:20
+#: models.py:22
 msgid "Title"
 msgstr "Заголовок"
 
-#: models.py:21
+#: models.py:23
 msgid "Recommended length: up to 70 symbols"
 msgstr "Рекомендуемая длина: до 70 символов."
 
-#: models.py:22
+#: models.py:24
 msgid "Description"
 msgstr "Описание"
 
-#: models.py:23
+#: models.py:25
 msgid "Recommended length: up to 160 symbols."
 msgstr "Рекомендуемая длина: до 160 символов."
 
-#: models.py:26 models.py:27
+#: models.py:26
+msgid "Keywords"
+msgstr "Ключевые слова"
+
+#: models.py:27
+msgid "Recommended length: up to 10 keyword phrases."
+msgstr "Рекомендуемая длина: до 10 ключевых фраз."
+
+#: models.py:28
+msgid "Text"
+msgstr "Текст"
+
+#: models.py:31 models.py:32
 msgid "SEO metadata"
 msgstr "Метаданные SEO"

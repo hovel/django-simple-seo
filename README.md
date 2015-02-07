@@ -12,7 +12,7 @@ It also includes support for multiple languages and localized URLs.
 
 ## Requirements
 
-    Django >= 1.5.0
+    Django >= 1.7.0
 
 ## Installation
 
@@ -20,23 +20,16 @@ The Git repository can be cloned with this command:
 
     git clone https://github.com/Glamping-Hub/django-simple-seo.git
 
-The `simpleseo` package included in the distribution should be placed on the `PYTHONPATH`. Add `simpleseo` to the `INSTALLED_APPS` in your *settings.py*. Run `syncdb` command to create the needed tables.
-
-## Settings
-
-SimpleSEO uses two configuration variables for defining the default information that will be displayed if the URL has no SEO metadata related. You have to add them to your *settings.py*:
-
-    SEO_DEFAULT_TITLE = 'Lorem ipsum title'
-    SEO_DEFAULT_DESCRIPTION = 'Lorem ipsum description'
+The `simpleseo` package included in the distribution should be placed on the `PYTHONPATH`. Add `simpleseo` to the `INSTALLED_APPS` in your *settings.py*. Run `migrate` command to create the needed tables.
 
 ## Registering Models
 
 To create synced SEO metadata for model instances you have to define the `SEO_MODELS` variable in your *settings.py* like this:
 
-    SEO_MODELS = (
+    SEO_MODELS = [
         ('myapp', 'mymodel'),
         ('myapp', 'mymodel'),
-    )
+    ]
 
 After registering the models, you can add the inline form to the admin instance for each model:
 
@@ -49,14 +42,22 @@ Now every time you save a model instance through the admin site the SEO metadata
 
 ## SEO Output
 
-As simple as loading the `seo` template library and using the `get_seo` template tag like this:
+As simple as loading the `seo` template library and using the `get_seo_*` (title, description, keywords, text) template tags like this:
 
     {% load seo %}
 
     <head>
-        {% get_seo %}
+        <title>{% get_seo_title 'Default title' %}</title>
     </head>
 
-## Notes
+## Settings
 
-[Why SimpleSEO does not include keywords meta tag](http://googlewebmastercentral.blogspot.in/2009/09/google-does-not-use-keywords-meta-tag.html).
+SimpleSEO also uses 4 configuration variables for defining the default
+information that will be displayed if the URL has no SEO metadata related
+(priority: settings < templates < models).
+You have to add them to your *settings.py*:
+
+    SEO_DEFAULT_TITLE = 'default'
+    SEO_DEFAULT_DESCRIPTION = 'default'
+    SEO_DEFAULT_KEYWORDS = 'default'
+    SEO_DEFAULT_TEXT = 'default'

@@ -7,11 +7,12 @@ import xml.etree.ElementTree as ET
 from django.test import TestCase
 from django.utils.encoding import force_text
 from simpleseo.models import SeoMetadata
-from django.conf import settings
+from simpleseo.utils import get_generic_lang_code
 
 from six.moves.urllib.parse import urlparse, unquote
 
 
+# TODO test settings (field selection)
 class TestSimpleseoMixin(object):
     location_list = []
     exclude_list = []
@@ -38,9 +39,9 @@ class TestSimpleseoMixin(object):
         for path in self.location_list:
             path = force_text(unquote(path))
             seo = SeoMetadata.objects.create(
-                path=path, lang_code=settings.LANGUAGE_CODE[:2],
+                path=path, lang_code=get_generic_lang_code(),
                 title=''.join(choice(ascii_letters) for _ in range(20)),
-                description=''.join(choice(ascii_letters) for _ in range(120)),
+                description=''.join(choice(ascii_letters) for _ in range(120))
             )
             print('Test path: {0}'.format(path))
             response = self.client.get(path, follow=True)
