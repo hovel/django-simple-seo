@@ -20,6 +20,11 @@ class SeoMetadataAdmin(admin.ModelAdmin):
     list_filter = ('lang_code', )
     exclude = ('content_type', 'object_id', )
 
+    class Media:
+        js = (
+            'simpleseo/admin.js',
+        )
+
 
 admin.site.register(SeoMetadata, SeoMetadataAdmin)
 register_seo_signals()

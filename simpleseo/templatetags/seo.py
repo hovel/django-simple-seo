@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.forms.models import model_to_dict
 from django.template import Library
+from django.utils.html import escape
+from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
 
 from simpleseo.models import SeoMetadata
@@ -27,19 +29,19 @@ def get_seo(context, **kwargs):
 
 @register.simple_tag(takes_context=True)
 def get_seo_title(context, default=''):
-    return get_seo(context, title=default).get('title')
+    return escape(get_seo(context, title=default).get('title'))
 
 
 @register.simple_tag(takes_context=True)
 def get_seo_description(context, default=''):
-    return get_seo(context, description=default).get('description')
+    return escape(get_seo(context, description=default).get('description'))
 
 
 @register.simple_tag(takes_context=True)
 def get_seo_keywords(context, default=''):
-    return get_seo(context, description=default).get('keywords')
+    return escape(get_seo(context, description=default).get('keywords'))
 
 
 @register.simple_tag(takes_context=True)
 def get_seo_text(context, default=''):
-    return get_seo(context, description=default).get('text')
+    return mark_safe(get_seo(context, description=default).get('text'))

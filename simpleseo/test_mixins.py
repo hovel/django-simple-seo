@@ -13,6 +13,7 @@ from six.moves.urllib.parse import urlparse, unquote
 
 
 # TODO test settings (field selection)
+# TODO escaping, mark_safe
 class TestSimpleseoMixin(object):
     location_list = []
     exclude_list = []

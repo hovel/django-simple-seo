@@ -48,7 +48,10 @@ As simple as loading the `seo` template library and using the `get_seo_*` (title
 
     <head>
         <title>{% get_seo_title 'Default title' %}</title>
+        <meta name="description" content="{% get_seo_description 'Default description' %}">
     </head>
+
+title, description and keywords will be displayed with `escape` filter, text with `mark_safe`.
 
 ## Settings
 
