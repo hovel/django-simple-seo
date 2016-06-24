@@ -11,6 +11,6 @@ setup(
     description='Simple SEO app for django framework',
     long_description=open('README.md').read(),
     requires=[
-        'Django (>=1.5.0)',
+        'Django (>=1.8.0)',
     ],
 )

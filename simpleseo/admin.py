@@ -1,10 +1,10 @@
 from django.contrib import admin
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.admin import GenericStackedInline
 
 from simpleseo.models import SeoMetadata, register_seo_signals
 
 
-class SeoMetadataInline(generic.GenericStackedInline):
+class SeoMetadataInline(GenericStackedInline):
     model = SeoMetadata
     extra = 0
     max_num = 0
