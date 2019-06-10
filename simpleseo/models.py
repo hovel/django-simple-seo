@@ -10,7 +10,8 @@ from simpleseo.utils import get_generic_lang_code
 
 @python_2_unicode_compatible
 class SeoMetadata(models.Model):
-    content_type = models.ForeignKey(ContentType, null=True, blank=True)
+    content_type = models.ForeignKey(
+        ContentType, on_delete=models.CASCADE, null=True, blank=True)
     object_id = models.PositiveIntegerField(null=True, blank=True)
     content_object = GenericForeignKey('content_type', 'object_id')
     path = models.CharField(verbose_name=_('Path'), max_length=255, db_index=True,

@@ -6,10 +6,9 @@ import xml.etree.ElementTree as ET
 
 from django.test import TestCase
 from django.utils.encoding import force_text
+from django.utils.six.moves.urllib.parse import urlparse, unquote
 from simpleseo.models import SeoMetadata
 from simpleseo.utils import get_generic_lang_code
-
-from six.moves.urllib.parse import urlparse, unquote
 
 
 # TODO test settings (field selection)
